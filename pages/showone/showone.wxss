@@ -1,0 +1,69 @@
+/* pages/showone/showone.wxss */
+.account{
+  display: flex;
+  flex-direction: row;
+  margin-left: 0px;
+  padding-left: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+  border-radius: 5px;
+  height: 30px;
+  font-family: 'FangSong';
+}
+
+.title{
+  margin-top: 7px;
+  margin-left: 120px;
+  font-size:18px;
+}
+
+.countTime{
+  margin-top: 7px;
+  margin-left: 30px;
+  height:20px;
+  font-size:18px;
+  text-align: center;
+}
+
+
+.section{
+  margin-top: 45px;
+  font-size:19px;
+  font-family: 'FangSong';
+}
+
+.title1{
+  margin-top: 7px;
+  margin-left: 20px;
+}
+
+.num{
+  margin-left: 0px;
+  background-color: rgba(182, 201, 196, 0.493);
+  padding-left: 30px;
+  padding-top: 8px;
+  width: 50%;
+  height: 35px;
+  font-size:18px;
+}
+
+.btn-area{
+  margin-left: 30px;
+  padding-left: 78px;
+  width: 40%;
+}
+
+
+
+.flex-item1{
+  margin-left: 50px;
+}
+
+.flex-item2{
+  margin-left: 0px;
+}
+
+.daan{
+  margin-top: 80px;
+}

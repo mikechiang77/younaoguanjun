@@ -1,0 +1,13 @@
+<!--pages/search_new/search_new.wxml-->
+<text>pages/search_new/search_new.wxml</text>
+<button type="primary"  bindtap="querydata1">1显示制定序号后的记录</button>
+
+<block wx:for="{{ne}}">
+<view>{{index}}:</view>
+<view>{{item}}</view>
+</block>
+
+<view wx:for="{{ne}}"> {{item}}
+</view>
+
+

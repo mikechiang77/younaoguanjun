@@ -1,0 +1,27 @@
+<!--pages/huxi/huxi.wxml-->
+<text>pages/huxi/huxi.wxml</text>
+
+<view class="record-area">
+      <button class="get-record" style="opacity:{{breathNum}}" > 提示一 </button>
+</view>
+
+<view class="record-area">
+      <button class="get-record2" style="opacity:{{breathNum2}}" > 提示二 </button>
+</view>
+
+<view class="record-area">
+      <button class="get-record3" style="opacity:{{breathNum3}}" > 提示三 </button>
+</view>
+
+<view class="record-area">
+      <button class="get-record4" style="opacity:{{breathNum4}}" > 提示四 </button>
+</view>
+
+
+
+
+
+
+
+
+

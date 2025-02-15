@@ -1,0 +1,15 @@
+<!--pages/manage1/manage1.wxml-->
+<text>pages/manage1/manage1.wxml</text>
+<button bindtap="deleteall">删除score1数据集中所有数据</button>
+
+<form catchsubmit="formSubmit">
+	<view class="cu-form-group">
+      <view class="title">获取头像</view>
+      <button class="cu-btn bg-green shadow" open-type="chooseAvatar" bindchooseavatar="gettourl"> <image class="user_avatar" src="{{avatarUrl}}"></image>获取头像</button>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">获取昵称</view>
+      <input placeholder="获取昵称" type="nickname" name="nickname" value="{{nickName}}"></input>
+      <button class="cu-btn bg-green shadow" form-type="submit"> 保存昵称 </button>
+    </view>
+</form>

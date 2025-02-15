@@ -1,0 +1,47 @@
+/* pages/result/result.wxss */
+
+.section{
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.im{
+  margin-left: 10rpx;
+  margin-top: 25rpx;
+  height: 35rpx;
+  width: 35rpx;
+  border-radius:100%;
+}
+
+.user_avatar{
+  border-radius: 128rpx;
+  width: 90rpx;
+  height: 90rpx;
+  margin-block-start: 10px;
+}
+
+.section1{
+  margin-top: 8px;
+  margin-left: 10px;
+  padding-left: 0px;
+}
+
+.section2{
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+.section3{
+  margin-top: 20px;
+}
+
+.section4{
+  margin-top: 20px;
+}
+
+.btn-area{
+  margin-top: 100px;
+  margin-left: 30px;
+  padding-left: 70px;
+  width: 40%;
+}

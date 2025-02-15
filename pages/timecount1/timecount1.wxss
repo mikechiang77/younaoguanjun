@@ -1,0 +1,15 @@
+/* pages/timecount/timecount.wxss */
+
+.countTime{
+  height:200px;
+  font-size:30px;
+  line-height:200px;
+  text-align: center;
+}
+
+.aaa{
+  width:150px;
+  background:rgb(7, 193, 96);
+  color:#fff;
+  margin-bottom:8px;
+}

@@ -1,0 +1,22 @@
+/* pages/view/view.wxss */
+
+.account{
+  display: flex;
+  flex-direction: row;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.num{
+  background-color: #968b8b;
+  padding-left: 10px;
+  width: 50%;
+
+
+}
+
+

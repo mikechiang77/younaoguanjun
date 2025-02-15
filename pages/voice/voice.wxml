@@ -1,0 +1,18 @@
+<!--pages/voice/voice.wxml-->
+<text>pages/voice/voice.wxml</text>
+
+<!-- 页面容器 -->
+<view class="container">
+  <!-- 语音按钮 -->
+  <button 
+    class="voice-button {{isRecording ? 'recording' : ''}}" 
+    bind:tap="toggleRecording"
+  >
+    {{isRecording ? '松开停止' : '按住说话'}}
+  </button>
+
+  <!-- 显示录音状态 -->
+  <view wx:if="{{duration > 0}}" class="status">
+    已录制：{{duration}}秒
+  </view>
+</view>

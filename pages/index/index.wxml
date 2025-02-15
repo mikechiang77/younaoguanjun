@@ -1,0 +1,26 @@
+
+
+<image class="bgd_pic" src="indexpic.jpeg"></image>
+
+<view class="content">
+
+</view>
+
+
+<!-- 需要使用 button 来授权登录 
+<button bindtap="getUserProfile">获取头像昵称...</button> -->
+
+        <view class="btn-area">
+<!--<button type="primary"  bindtap="gotonextpage">开始</button>
+<button type="primary"  bindtap="showall">展示所有</button>
+<button type="primary"  bindtap="showone">展示一题</button> 
+<button type="primary"  bindtap="huxi">文字呼吸</button>
+-->
+
+<button class="primary" type="primary"  bindtap="shownewone">开始</button>
+
+<button class="primary" type="primary"  bindtap="gotomanage">管理</button>
+<button class="primary" type="primary"  bindtap="gotomanage1">管理1</button>
+
+</view>
+

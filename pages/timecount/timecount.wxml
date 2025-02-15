@@ -1,0 +1,7 @@
+<!--pages/timecount/timecount.wxml-->
+<text>pages/timecount/timecount.wxml</text>
+
+<view class="countTime">{{timecount}}</view>
+<button class="aaa" bindtap="start">开始</button>
+<button class="aaa" bindtap="stop">暂停</button>
+<button class="aaa" bindtap="Reset">停止</button>

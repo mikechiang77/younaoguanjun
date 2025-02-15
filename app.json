@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/manage1/manage1",
+    "pages/manage/manage",
+    "pages/logs/logs",
+    "pages/result/result",
+    "pages/adddata/adddata",
+    "pages/count_demo/count_demo",
+    "pages/searchdb/searchdb",
+    "pages/search_new/search_new",
+    "pages/showall/showall",
+    "pages/timecount/timecount",
+    "pages/huxi/huxi",
+    "pages/shownewone/shownewone",
+    "pages/showone/showone",
+    "pages/addquestion/addquestion",
+    "pages/voice/voice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "右脑冠军",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap26.json"
+}

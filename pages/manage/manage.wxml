@@ -1,0 +1,24 @@
+<!--pages/manage/manage.wxml-->
+<text>pages/manage/manage.wxml</text>
+
+<button bindtap="gotovoice">语音交互</button>
+
+<button bindtap="deleteall">删除score1数据集中所有数据</button>
+
+<button bindtap="doadd">执行云函数add</button>
+
+<button bindtap="gotoaddquestion">添加题目</button>
+<button bindtap="getalldb">调取所有数据库</button>
+<button bindtap="getinfo">getuserinfo</button>
+
+<form catchsubmit="formSubmit">
+	<view class="cu-form-group">
+      <view class="title">获取头像</view>
+      <button class="cu-btn bg-green shadow" open-type="chooseAvatar" bindchooseavatar="gettourl"> 获取头像</button>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">获取昵称</view>
+      <input placeholder="获取昵称" type="nickname" name="nickname"></input>
+      <button class="cu-btn bg-green shadow" form-type="submit"> 保存昵称 </button>
+    </view>
+</form>

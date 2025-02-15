@@ -1,0 +1,59 @@
+<!--pages/addquestion/addquestion.wxml-->
+<text>pages/addquestion/addquestion.wxml</text>
+
+
+<view class="title">添加新题</view>
+
+
+<view class="section">
+
+<form bindsubmit="onsubmit">
+<view class="flex-wrp" style="display:flex;flex-direction:row;">
+<view class="flex-item1" style="width:75px;height:30px;color:#000000;text-align:left;line-height:30px;">提示一</view>
+<view class="num">
+    <input name="addtip1"  cursor="1"  placeholder-style="color:#999999;"/>
+  </view>
+</view>
+
+  <view class="flex-wrp" style="display:flex;flex-direction:row;">
+<view class="flex-item1" style="width:75px;height:30px;color:#000000;text-align:left;line-height:30px;">提示二</view>
+<view class="num">
+    <input name="addtip2"  cursor="1"  placeholder-style="color:#999999;"/>
+  </view>
+</view>
+
+  <view class="flex-wrp" style="display:flex;flex-direction:row;">
+<view class="flex-item1" style="width:75px;height:30px;color:#000000;text-align:left;line-height:30px;">提示三</view>
+<view class="num">
+    <input name="addtip3"  cursor="1"  placeholder-style="color:#999999;"/>
+  </view>
+</view>
+
+  <view class="flex-wrp" style="display:flex;flex-direction:row;">
+<view class="flex-item1" style="width:75px;height:30px;color:#000000;text-align:left;line-height:30px;">提示四</view>
+<view class="num">
+    <input name="addtip4"  cursor="1"  placeholder-style="color:#999999;"/>
+  </view>
+</view>
+
+<view class="flex-wrp" style="display:flex;flex-direction:row;">
+<view class="flex-item1" style="width:75px;height:40px;color:#000000;text-align:left;line-height:30px;">答案</view>
+<view class="num">
+    <input name="addanswer"  cursor="1"  placeholder-style="color:#999999;"/>
+  </view>
+</view>
+
+<view class="flex-wrp" style="display:flex;flex-direction:row;">
+<view class="flex-item1" style="width:75px;height:40px;color:#000000;text-align:left;line-height:30px;">说明</view>
+<view class="num1">
+    <textarea name="addreason" maxlength="-1"  cursor="1"  placeholder-style="color:#999999;"/>
+  </view>
+</view>
+
+<view class="btn-area">
+<button form-type="submit">添加</button>
+</view>
+
+</form>
+
+</view>

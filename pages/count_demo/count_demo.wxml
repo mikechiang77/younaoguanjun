@@ -1,0 +1,4 @@
+<!--pages/count_demo/count_demo.wxml-->
+<text>pages/count_demo/count_demo.wxml</text>
+
+<text>你已经访问{{count}}次</text>

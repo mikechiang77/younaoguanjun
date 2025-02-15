@@ -1,0 +1,91 @@
+<!--pages/showone/showone.wxml-->
+
+
+<view class="flex-wrp" style="display:flex;flex-direction:row;font-family: 'FangSong';">
+<view class="title">第{{sharenumber}}题</view>
+<view class="countTime">{{timecount}}</view>
+</view>
+
+
+
+<view class="section">
+
+<view class="flex-wrp" style="display:flex;flex-direction:row;">
+  <view class="flex-item1" style="width:95px;height:30px;color:#000000;text-align:center;line-height:30px;">提示一</view>
+  <view class="flex-item"style="opacity:{{breathNum}};width:120px;height:30px;text-align:center;line-height:30px;" >{{nowdata.tip1}}</view>
+</view>
+<view class="flex-item bc_green" style="width:80px;height:10px;color:#000000;text-align:center;line-height:10px;">
+</view>
+<view class="flex-wrp" style="display:flex;flex-direction:row;">
+  <view class="flex-item1" style="width:95px;height:30px;color:#000000;text-align:center;line-height:30px;">提示二</view>
+  <view class="flex-item2" style="opacity:{{breathNum2}};width:120px;height:30px;text-align:center;line-height:30px;">{{nowdata.tip2}}</view>
+</view>
+<view class="flex-item bc_green" style="width:80px;height:10px;color:#000000;text-align:center;line-height:10px;">
+</view>
+<view class="flex-wrp" style="display:flex;flex-direction:row;">
+  <view class="flex-item1" style="width:95px;height:30px;color:#000000;text-align:center;line-height:30px;">提示三</view>
+  <view class="flex-item3" style="opacity:{{breathNum3}};width:120px;height:30px;text-align:center;line-height:30px;">{{nowdata.tip3}}</view>
+</view>
+<view class="flex-item bc_green" style="width:80px;height:10px;color:#000000;text-align:center;line-height:10px;">
+</view>
+<view class="flex-wrp" style="display:flex;flex-direction:row;">
+  <view class="flex-item1" style="width:95px;height:30px;color:#000000;text-align:center;line-height:30px;">提示四</view>
+  <view class="flex-item4" style="opacity:{{breathNum4}};width:120px;height:30px;text-align:center;line-height:30px;">{{nowdata.tip4}}</view>
+</view>
+
+
+<view class="flex-item bc_green" style="width:80px;height:50px;color:#000000;text-align:center;line-height:75px;"></view>
+</view>
+
+<view class="account">
+  <view class="title1">{{answerlength}}个字：</view>
+  <!--
+  <view class="num"><input answer="useranswer" bindinput="bindkeyinput" bindblur="loosefocus" focus="{{inputShowed}}"  cursor="1" value="{{addtext}}" placeholder-style="color:#999999;"/></view>
+ -->
+ <view class="num"><input answer="useranswer" bindinput="bindkeyinput"    cursor="20" value="{{addtext}}" placeholder-style="color:#999999;"/></view>
+</view> 
+
+
+<view class="hr"></view> 
+
+<view class="btn-area">
+<button type="primary" bindtap="redirectBtn">提交</button>
+</view>
+
+<view class="daan">答案：{{nowdata.answer}}</view>
+
+<!--       
+    <view class="box">
+      <view style="font-size:1.7rem;">题目{{num}}</view>
+      <view style="margin-top:0.5rem;margin-bottom:0.5rem;">
+        提示：
+        <view style="margin-left:1rem;">
+         提示1 {{nowdata.tip1}}
+        </view>
+        <view style="margin-left:1rem;">
+         提示2 {{nowdata.tip2}}
+        </view>
+        <view style="margin-left:1rem;">
+         提示3 {{nowdata.tip3}}
+        </view>
+        <view style="margin-left:1rem;">
+        提示4 {{nowdata.tip4}}
+        </view>
+      </view>
+      <view>答案：{{nowdata.answer}}</view>
+    </view>
+
+    <view class="account">
+    <view class="title">答案({{answernumber}}个字)：</view>
+    <view class="num"><input answer="useranswer" bindinput="bindkeyinput" focus="True"  cursor="5" placeholder-style="color:#999999;"/></view>
+    </view>
+
+  <view class="btn-area">
+<button type="primary" bindtap="redirectBtn">提交</button>
+</view>
+
+-->
+
+
+
+

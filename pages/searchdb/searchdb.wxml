@@ -1,0 +1,13 @@
+<!--pages/searchdb/searchdb.wxml-->
+<text>pages/searchdb/searchdb.wxml</text>
+
+<form class="form1" bindsubmit="btnSbmit">  <!--点击按钮出发函数-->
+    <view class="top">
+      <view class="inputtMeth">
+        <input class="inputMeth" placeholder="请输入查找日期序号" id="inputName" name="inputName"></input>
+      </view>
+      <view class="buttonMeth">
+        <button class="BT" form-type="submit">查询</button>
+      </view>
+    </view>
+  </form>

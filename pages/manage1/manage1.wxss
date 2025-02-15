@@ -1,0 +1,8 @@
+/* pages/manage1/manage1.wxss */
+
+.user_avatar{
+  border-radius: 128rpx;
+  width: 90rpx;
+  height: 90rpx;
+  margin-block-start: 10px;
+}

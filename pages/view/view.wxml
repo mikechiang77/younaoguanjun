@@ -1,0 +1,38 @@
+<view class="section">
+
+  <view class="flex-wrp" style="display:flex;flex-direction:row;">
+    <view class="flex-item bc_green" style="width:80px;height:75px;background-color:white;color:#000000;text-align:center;line-height:100px;">提示1</view>
+    <view class="flex-item bc_red" style="width:80px;height:75px;background-color:white;color:#000000;text-align:center;line-height:100px;">提示2</view>
+    <view class="flex-item bc_blue" style="width:80px;height:75px;background-color:white;color:#000000;text-align:center;line-height:100px;">提示3</view>
+    <view class="flex-item bc_blue" style="width:80px;height:75px;background-color:white;color:#000000;text-align:center;line-height:100px;">提示4</view>
+  </view>
+  <view class="flex-wrp" style="display:flex;flex-direction:row;">
+    <view class="flex-item bc_green"style="width:80px;height:50px;background-color:black;color:#FFFFFF;text-align:center;line-height:50px;" >{{tip1}}</view>
+    <view class="flex-item bc_red" style="width:80px;height:50px;background-color:black;color:#FFFFFF;text-align:center;line-height:50px;">{{tip2}}</view>
+    <view class="flex-item bc_blue" style="width:80px;height:50px;background-color:black;color:#FFFFFF;text-align:center;line-height:50px;">{{tip3}}</view>
+    <view class="flex-item bc_blue" style="width:80px;height:50px;background-color:black;color:#FFFFFF;text-align:center;line-height:50px;">{{tip4}}</view>
+  </view>
+
+  <view class="flex-item bc_green" style="width:80px;height:50px;background-color:white;color:#000000;text-align:center;line-height:75px;"></view>
+
+
+  <view class="account">
+    <view class="title">答案({{answernumber}}个字)：</view>
+    <view class="num"><input answer="useranswer" bindinput="bindkeyinput" focus  cursor="1" placeholder-style="color:#999999;"/></view>
+  </view>
+
+  <view class="hr"></view> 
+
+  <view class="btn-area">
+<button type="primary" bindtap="redirectBtn">提交</button>
+</view>
+
+<view class="section">
+<view class="section_title">你输入的是：{{useranswer}}</view>
+</view>
+
+</view>
+
+
+
+
