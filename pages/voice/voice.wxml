@@ -4,6 +4,10 @@
 <!-- 页面容器 -->
 <view class="container">
   <!-- 语音按钮 -->
+
+<button bindtap="startRecording">开始录音</button>
+<button bindtap="stopRecording" hidden="true">停止录音</button>
+
   <button 
     class="voice-button {{isRecording ? 'recording' : ''}}" 
     bind:tap="toggleRecording"

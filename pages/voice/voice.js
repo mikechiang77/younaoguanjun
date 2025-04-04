@@ -1,13 +1,22 @@
 // pages/voice/voice.js
+// 在小程序页面中实现录音和上传的代码
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isRecording: false,
-    duration: 0,
-    recorderManager: wx.getRecorderManager() // 录音管理器
+    audioFilePath: '', // 录音文件路径
+    audioFileID: '', // 录音文件在云存储中的ID
+    isRecording: false, // 当前是否正在录音
+
+    recording: false,
+    tempFilePath: '',
+ 
+    //duration: 0,
+    //recorderManager: wx.getRecorderManager() // 录音管理器
   },
 
   /**
@@ -27,6 +36,11 @@ this.data.recorderManager.onStop(res => {
   // })
 })
   },
+
+  
+  
+    // 录音按钮点击事件
+    
 
   toggleRecording() {
     if (this.data.isRecording) {
