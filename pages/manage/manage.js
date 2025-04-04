@@ -68,10 +68,11 @@ Page({
   },
 
   doadd(){
-    wx.cloud.init({
-      env:'cloud1-4g9qgiuo73789486',  
-      traceUser:true
-    });  
+    // 删除云环境初始化代码，使用app.js中的统一初始化
+    // wx.cloud.init({
+    //   env:'cloud1-4g9qgiuo73789486',  
+    //   traceUser:true
+    // });  
     
     wx.cloud.callFunction({
       // 云函数名称
@@ -89,10 +90,11 @@ Page({
   },
 
   deleteall() {
-    wx.cloud.init({
-      env:'cloud1-4g9qgiuo73789486',   //开发环境
-      traceUser:true
-    });  
+    // 删除云环境初始化代码，使用app.js中的统一初始化
+    // wx.cloud.init({
+    //   env:'cloud1-4g9qgiuo73789486',   //开发环境
+    //   traceUser:true
+    // });  
 
     wx.cloud.callFunction({
     name: 'delete_all',                //调用delete_all云函数
@@ -100,10 +102,11 @@ Page({
   },
 
   getalldb() {
-    wx.cloud.init({
-      env:'cloud1-4g9qgiuo73789486',   //开发环境
-      traceUser:true
-    });  
+    // 删除云环境初始化代码，使用app.js中的统一初始化
+    // wx.cloud.init({
+    //   env:'cloud1-4g9qgiuo73789486',   //开发环境
+    //   traceUser:true
+    // });  
 
     wx.cloud.callFunction({
     name: 'playlist',                //调用playlist云函数不行，调用add就行

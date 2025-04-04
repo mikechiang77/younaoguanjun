@@ -20,10 +20,11 @@ Page({
 
   onsubmit: function(event){
   console.log(event.detail.value);
-  wx.cloud.init({                              //连上云端准备添加
-    env:'cloud1-4g9qgiuo73789486',  
-    traceUser:true                             //traceuser？
-  });  
+  // 删除云环境初始化代码，使用app.js中的统一初始化
+  // wx.cloud.init({                              //连上云端准备添加
+  //   env:'cloud1-4g9qgiuo73789486',  
+  //   traceUser:true                             //traceuser？
+  // });  
   const db=wx.cloud.database();   
   const table1=db.collection("testdatabase")   //连上数据库准备添加
   table1.add({

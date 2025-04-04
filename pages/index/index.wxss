@@ -1,17 +1,33 @@
 .bgd_pic{
-    position:absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     z-index: -1;
 }
 
 .primary{
-    margin-top: 400px;
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom:5px;
-    height: 50%;
-    width: 40%;
+    margin-top: 20px; /* 大幅减少顶部距离 */
+    margin-bottom: 20px; /* 添加底部距离 */
+    padding: 10px 15px; /* 简化内边距定义 */
+    width: 200px; /* 使用固定宽度 */
+    height: auto; /* 自适应高度 */
+}
+
+/* 添加按钮区域样式 */
+.btn-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+/* 添加标题样式 */
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 60px;
+    color: #333;
 }
 
 .content{

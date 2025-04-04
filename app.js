@@ -9,6 +9,16 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // 初始化云环境
+    if (!wx.cloud) {
+      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    } else {
+      wx.cloud.init({
+        env: 'cloud1-8g1gpc2w62e45574', // 新的云环境ID
+        traceUser: true
+      })
+      console.log('云环境初始化成功')
+    }
 
     // 登录
    /* wx.login({          //在app.js里正常调用，拿到 res.userInfo 用户的信息
@@ -58,5 +68,6 @@ App({
     wxnickName: null,
     wxavatarUrl: null,
     global_all: [],            //全局变量存放云函数下载的题目数组
+    cloudEnv: 'cloud1-8g1gpc2w62e45574' // 添加环境ID到全局数据
   }
 })

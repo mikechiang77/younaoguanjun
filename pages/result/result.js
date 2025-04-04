@@ -37,11 +37,6 @@ Page({
 
     this.setData({ first_total_seconds: useminute*60+usesecond });   //历史总时间缺省等于当前总时间
 
-  wx.cloud.init({
-    env:'younao-4gsgil468bff86d9',  
-    traceUser:true                             //traceuser？
-  });  
-  
   var that=this;   //定义到这里，让that先获取外面方法的this    什么意思？
   var text1 = 0;
   var text2 = 0;

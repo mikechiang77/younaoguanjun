@@ -14,10 +14,11 @@ Page({
    */
   onLoad: function (options) {
     let that=this;        //用that承接this中原始数据并操作后传给视图层
-    wx.cloud.init({
-      env:'cloud1-4g9qgiuo73789486',  
-      traceUser:true
-    });               
+    // 删除云环境初始化代码，使用app.js中的统一初始化
+    // wx.cloud.init({
+    //   env:'cloud1-4g9qgiuo73789486',  
+    //   traceUser:true
+    // });               
     const db=wx.cloud.database();   
     const banner=db.collection("testdatabase");  //指定要获取的请求集
     banner.get().then(res=>{  //banner.get()是个布尔值, true则执行res=>等于function(res)

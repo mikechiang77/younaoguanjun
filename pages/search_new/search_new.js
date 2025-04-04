@@ -13,11 +13,12 @@ Page({
    */
   onLoad: function (options) {
    // var _this = this;
-    wx.cloud.init({
-      env: 'cloud1-4g9qgiuo73789486' //云开发环境id
-    });
-    //1、引用数据库   
-    const db = wx.cloud.database({env: 'cloud1-4g9qgiuo73789486'})
+    // 删除云环境初始化代码，使用app.js中的统一初始化
+    // wx.cloud.init({
+    //   env: 'cloud1-4g9qgiuo73789486' //云开发环境id
+    // });
+    //1、引用数据库，删除env参数，使用app.js中的统一环境   
+    const db = wx.cloud.database();
     const _ = db.command
     db.collection('testdatabase').orderBy('date1','desc').where({
       date: _.gt(5)
@@ -34,11 +35,12 @@ Page({
 
   querydata1: function () {
     var _this = this;
-    wx.cloud.init({
-      env: 'cloud1-4g9qgiuo73789486' //云开发环境id
-    });
-    //1、引用数据库   
-    const db = wx.cloud.database({env: 'cloud1-4g9qgiuo73789486'})
+    // 删除云环境初始化代码，使用app.js中的统一初始化
+    // wx.cloud.init({
+    //   env: 'cloud1-4g9qgiuo73789486' //云开发环境id
+    // });
+    //1、引用数据库，删除env参数，使用app.js中的统一环境  
+    const db = wx.cloud.database();
     const _ = db.command
     db.collection('testdatabase').orderBy('date1','desc').where({
       date: _.gt(5)

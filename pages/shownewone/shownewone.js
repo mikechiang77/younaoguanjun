@@ -60,17 +60,6 @@ init=setInterval(function(){  //设定一个定时器。按照指定的周期（
   that.timer()
 },1000);       //注意这里是1000毫秒，也就是每1秒回调刷新一次timer()
   
- /*   wx.cloud.init({
-      env:'cloud1-4g9qgiuo73789486',  
-      traceUser:true
-    });               
-    const db=wx.cloud.database();   
-    const banner=db.collection("testdatabase");  //.orderBy('date1','desc')指定要获取的请求集，这里按时间排序，倒叙 asc升序 desc降序
-
-    const total = await (await banner.count()).total    //计算云数据库记录数，算分成多少个20条
-    wx.setStorageSync('sizenum', total); //把记录数存入全局变量sizenum,这个倒是准的
-    console.log('sizenum的值',total)   //没执行了
-*/
     var num=totalnumber;
     this.setData({num: num});  //这句赋值成功了
     console.log('num的值',num)  //执行成功

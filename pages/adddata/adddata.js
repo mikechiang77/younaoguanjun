@@ -18,14 +18,12 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-    wx.cloud.init({
-      env: 'cloud1-4g9qgiuo73789486' //云开发环境id
-    });
-    //1、引用数据库   
-    const db = wx.cloud.database({
-      //这个是环境ID不是环境名称     
-      env: 'cloud1-4g9qgiuo73789486'
-    })
+    // 删除云环境初始化代码，使用app.js中的统一初始化
+    // wx.cloud.init({
+    //   env: 'cloud1-4g9qgiuo73789486' //云开发环境id
+    // });
+    //1、引用数据库，删除env参数，使用app.js中的统一环境   
+    const db = wx.cloud.database();
     const _ = db.command
     db.collection('testdatabase').orderBy('date1','desc').where({
       date: _.gt(1)
@@ -42,9 +40,10 @@ Page({
 
   //以下函数没法执行报错
 querydata2: function(){
-  wx.cloud.init({
-    env: 'cloud1-4g9qgiuo73789486' //云开发环境id
-  });
+  // 删除云环境初始化代码，使用app.js中的统一初始化
+  // wx.cloud.init({
+  //   env: 'cloud1-4g9qgiuo73789486' //云开发环境id
+  // });
 const db = wx.cloud.database() //获取数据库的引用
 const _ = db.command //获取数据库查询及更新指令
 const cont = db.collection("testdatabase")//获取集合testdatabase的引用
@@ -75,9 +74,10 @@ const cont = db.collection("testdatabase")//获取集合testdatabase的引用
 querydata: function(){
   this.setData({
     clicknext: 1})
-  wx.cloud.init({
-    env: 'cloud1-4g9qgiuo73789486' //云开发环境id
-  });
+  // 删除云环境初始化代码，使用app.js中的统一初始化
+  // wx.cloud.init({
+  //   env: 'cloud1-4g9qgiuo73789486' //云开发环境id
+  // });
   const db = wx.cloud.database()
   const cont = db.collection('testdatabase');
   cont.doc("cbddf0af60b4e7b80d4f773c6a24a61c").get({
