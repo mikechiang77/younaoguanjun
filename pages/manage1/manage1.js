@@ -21,22 +21,34 @@ Page({
         //let useravatarUrl = wx.getStorageSync('useravatarUrl');  
           //let useravatarUrl = e.detail.avatarUrl;  
        // userinfo['avatarUrl'] = e.detail.avatarUrl;
-        this.setData({ useravatarUrl: e.detail.avatarUrl }); //有问题 
+        this.setData({ 
+          useravatarUrl: e.detail.avatarUrl,
+          avatarUrl: e.detail.avatarUrl  // 重要：同时更新界面显示的变量
+        });
         console.log('头像地址1:', this.data.useravatarUrl)   //显示了
         wx.setStorageSync('useravatarUrl', this.data.useravatarUrl);
       },
 
  //  获取昵称
  formSubmit(e) {
-  console.log('昵称：', e.detail.value.nickname)  //这句执行正确
+  console.log('昵称：', e.detail.value.nickname)
   if (e.detail.value.nickname != '') {
-   //let usernickname = wx.getStorageSync('usernickname');
-   // userinfo['nickName'] = e.detail.value.nickname;  //usernifo应该是个数组
-    //this.setData({ userinfo['nickName'] :e.detail.value.nickname });
-    this.setData({ usernickname :e.detail.value.nickname }); //这句为啥有问题？
+    // 同时更新两个变量，保持一致
+    this.setData({ 
+      usernickname: e.detail.value.nickname,
+      nickName: e.detail.value.nickname  // 重要：同时更新界面显示的变量
+    });
     wx.setStorageSync('usernickname', this.data.usernickname);
-    console.log('昵称1：', this.data.usernickname) //必须加this.data,是不是和缓存混淆？
-  }else{
+    console.log('昵称1：', this.data.usernickname)
+    
+    // 可以添加一个提示，告诉用户保存成功
+    wx.showToast({
+      title: '昵称保存成功',
+      icon: 'success',
+      duration: 2000
+    });
+  } else {
+    // 保持原有代码
     wx.showToast({
       icon:'error',
       title: '请填入昵称',

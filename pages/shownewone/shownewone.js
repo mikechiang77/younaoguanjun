@@ -30,10 +30,15 @@ async onLoad () {
   this.setData({breathNum3: 0});
   this.setData({breathNum4: 0}); 
 
-  this.setTextBreathing(wx.createSelectorQuery(".flex-item1"),this) ;   
-  this.setTextBreathing2(wx.createSelectorQuery(".flex-item2"),this) ;
-  this.setTextBreathing3(wx.createSelectorQuery(".flex-item3"),this) ;
-  this.setTextBreathing4(wx.createSelectorQuery(".flex-item4"),this) ; //前面加await还是提前显示tip
+  //this.setTextBreathing(wx.createSelectorQuery(".flex-item1"),this) ;   
+  //this.setTextBreathing2(wx.createSelectorQuery(".flex-item2"),this) ;
+  //this.setTextBreathing3(wx.createSelectorQuery(".flex-item3"),this) ;
+  //this.setTextBreathing4(wx.createSelectorQuery(".flex-item4"),this) ; //前面加await还是提前显示tip
+// 直接调用动画函数，不需要传递选择器
+this.setTextBreathing(this);   
+this.setTextBreathing2(this);
+this.setTextBreathing3(this);
+this.setTextBreathing4(this);
 
 //先取全局变量global_all[0]的值
 console.log('取到全局变量global_all的值', app.global_all)  //执行正确
@@ -71,7 +76,8 @@ init=setInterval(function(){  //设定一个定时器。按照指定的周期（
   },
 
 
-  setTextBreathing: function(cls,e) {   //这里传递2个参数? cls是class
+  //setTextBreathing: function(cls,e) {   //这里传递2个参数? cls是class 报错！
+  setTextBreathing: function(that) {
     //使用记录呼吸效果
     var transparency = 0;    //初始完全不透明不显示
     var add = true;  //记录当前在做透明度增加操作
@@ -82,14 +88,17 @@ init=setInterval(function(){  //设定一个定时器。按照指定的周期（
             add = false;      //那么add值变为false，别再加了
         }
       } 
-      cls._defaultComponent.setData({    //_defaultcomponet应该是当前class缺省的模块
+     // cls._defaultComponent.setData({    //_defaultcomponet应该是当前class缺省的模块 报错！
+      // 直接设置对应元素的透明度变量
+     that.setData({
         breathNum:transparency/10        //breathNum是class里透明度的变量
       })
                               //通过setData的方式，设置breathNum的值
     },500)                 //500是定时器时间！
   },
 
-  setTextBreathing2: function(cls,e){
+  //setTextBreathing2: function(cls,e){
+    setTextBreathing2: function(that) {
     var transparency2 = 0;    //初始是0，完全不透明
     var add2 = true;  
     setInterval(function(){   //应该是间隔执行库函数
@@ -100,13 +109,15 @@ init=setInterval(function(){  //设定一个定时器。按照指定的周期（
             add2 = false;      
         }
       } 
-      cls._defaultComponent.setData({    //这句怎么理解？
+      //cls._defaultComponent.setData({    //这句怎么理解？
+      that.setData({
         breathNum2:(transparency2-5)/10        //breathNum2 从0到1渐变
       })                        
     },500)                    //300是文字浮现的时间！
   },
 
-  setTextBreathing3: function(cls,e){
+  //setTextBreathing3: function(cls,e){
+    setTextBreathing3: function(that) {
     var transparency3 = 0;    //初始是0，完全不透明
     var add3 = true;  
     setInterval(function(){   //应该是间隔执行库函数
@@ -116,13 +127,15 @@ init=setInterval(function(){  //设定一个定时器。按照指定的周期（
             add3 = false;      
         }
       } 
-      cls._defaultComponent.setData({    //这句怎么理解？
+      //cls._defaultComponent.setData({    //这句怎么理解？
+      that.setData({
         breathNum3:(transparency3-10)/10        //breathNum3 从0到1渐变
       })                        
     },500)                    //300是文字浮现的时间！
   },
 
-   setTextBreathing4: function(cls,e){
+   //setTextBreathing4: function(cls,e){
+    setTextBreathing4: function(that) {
     var transparency4 = 0;    //初始是0，完全不透明
     var add4 = true;  
     setInterval(function(){   //应该是间隔执行库函数
@@ -133,7 +146,8 @@ init=setInterval(function(){  //设定一个定时器。按照指定的周期（
         }
         
       } 
-      cls._defaultComponent.setData({    //这句怎么理解？
+      //cls._defaultComponent.setData({    //这句怎么理解？
+      that.setData({
         breathNum4:(transparency4-15)/10
             //breathNum4 从0到1渐变
       })                        
