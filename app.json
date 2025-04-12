@@ -15,7 +15,8 @@
     "pages/shownewone/shownewone",
     "pages/showone/showone",
     "pages/addquestion/addquestion",
-    "pages/voice/voice"
+    "pages/voice/voice",
+    "pages/userinfo/userinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

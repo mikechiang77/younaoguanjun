@@ -27,6 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad() {
+    // 从缓存加载数据
     var useranswer = wx.getStorageSync('useranswer');
     this.setData({ useranswer: useranswer });
     var tip1 = wx.getStorageSync('tip1');
@@ -50,10 +51,32 @@ Page({
     var qnumber = wx.getStorageSync('qnumber');
     this.setData({ show_qnumber: qnumber+1 });
     
-    this.setData({ first_total_seconds: useminute*60+usesecond });
-
-    // 使用排名服务获取用户排名
-    await this.fetchUserRanking(qnumber, user, useminute, usesecond);
+    // 尝试从缓存加载排名数据
+    var qusers = wx.getStorageSync('qusers');
+    var slower_users = wx.getStorageSync('slower_users');
+    var beat_percent = wx.getStorageSync('beat_percent');
+    var first_minute = wx.getStorageSync('first_minute');
+    var first_second = wx.getStorageSync('first_second');
+    var first_total_seconds = wx.getStorageSync('first_total_seconds');
+    
+    if (qusers && slower_users !== undefined && beat_percent !== undefined) {
+      // 使用预先计算的排名数据
+      this.setData({ 
+        qusers: qusers,
+        slower_users: slower_users,
+        beat_percent: beat_percent,
+        first_minute: first_minute,
+        first_second: first_second,
+        first_total_seconds: first_total_seconds || (first_minute*60+first_second)
+      });
+      
+      console.log('使用预加载的排名数据');
+    } else {
+      // 没有预先计算的数据，重新获取
+      console.log('无预加载排名数据，重新获取');
+      this.setData({ first_total_seconds: useminute*60+usesecond });
+      await this.fetchUserRanking(qnumber, user, useminute, usesecond);
+    }
   },
   
   /**
@@ -178,48 +201,126 @@ Page({
   },
 
   modalinput: function (e) {
+    // 获取总题数
+    var sizenum = wx.getStorageSync('cache_total');
+    console.log("获取到的总题数:", sizenum);
+    
+    // 如果总题数不存在或无效，尝试其他方式获取
+    if (!sizenum || sizenum <= 0) {
+      const cacheAll = wx.getStorageSync('cache_all');
+      if (cacheAll && Array.isArray(cacheAll)) {
+        sizenum = cacheAll.length;
+        console.log("从cache_all获取的总题数:", sizenum);
+        wx.setStorageSync('cache_total', sizenum);
+      } else {
+        sizenum = 100; // 设置一个默认最大值
+        console.log("未找到有效的总题数，使用默认值:", sizenum);
+      }
+    }
+    
     this.setData({
       hiddenmodalput: !this.data.hiddenmodalput,
+      sizenum: sizenum
     });
   },
 
   getjumpnumber: function(e){
+    console.log("输入的题号原始值:", e.detail.value);
+    const value = e.detail.value.trim(); // 去除空格
     this.setData({
-      jumpnumber: e.detail.value    
+      jumpnumber: value    
     });
-    console.log("jumpnumber的值：", this.data.jumpnumber);
+    console.log("处理后的jumpnumber值:", value);
   },
 
   confirm: function(){
+    console.log("确认跳转，当前jumpnumber:", this.data.jumpnumber);
+    
+    // 获取总题数
     var sizenum = wx.getStorageSync('cache_total');
-    this.setData({ sizenum: sizenum });
-
-    if (this.data.jumpnumber!=null){
-      if ((this.data.jumpnumber<this.data.sizenum)&&(this.data.jumpnumber>0)&&((/(^[0-9]*$)/.test(this.data.jumpnumber)))){
-        wx.setStorageSync('qnumber', this.data.jumpnumber-1);
-        wx.redirectTo({url: '../showone/showone'});
-      }
-      else{
-        wx.showToast({
-          title: '题号不超过'+sizenum,
-          icon:'none',
-          duration:1500
-        });
+    console.log("获取到的总题数:", sizenum);
+    
+    // 如果总题数不存在或无效，尝试其他方式获取
+    if (!sizenum || sizenum <= 0) {
+      const cacheAll = wx.getStorageSync('cache_all');
+      if (cacheAll && Array.isArray(cacheAll)) {
+        sizenum = cacheAll.length;
+        console.log("从cache_all获取的总题数:", sizenum);
+        wx.setStorageSync('cache_total', sizenum);
+      } else {
+        sizenum = 100; // 设置一个默认最大值
+        console.log("未找到有效的总题数，使用默认值:", sizenum);
       }
     }
-    else{
+    
+    this.setData({ sizenum: sizenum });
+    
+    // 检查输入值
+    if (this.data.jumpnumber !== undefined && this.data.jumpnumber !== null && this.data.jumpnumber !== '') {
+      // 转换为数字
+      const jumpNum = parseInt(this.data.jumpnumber);
+      console.log("解析后的跳转题号:", jumpNum);
+      
+      // 检查是否为有效数字
+      if (!isNaN(jumpNum) && jumpNum > 0 && jumpNum <= sizenum) {
+        console.log("题号有效，将跳转到第", jumpNum, "题");
+        wx.setStorageSync('qnumber', jumpNum - 1); // 转为索引
+        
+        // 成功时关闭对话框
+        this.setData({
+          hiddenmodalput: true
+        });
+        
+        wx.redirectTo({
+          url: '../showone/showone',
+          success: function() {
+            console.log("跳转成功");
+          },
+          fail: function(error) {
+            console.error("跳转失败:", error);
+            wx.showToast({
+              title: '跳转失败：' + error.errMsg,
+              icon: 'none',
+              duration: 2000
+            });
+          }
+        });
+      } else {
+        console.log("题号无效:", jumpNum);
+        
+        // 输入无效时，不关闭对话框
+        wx.showToast({
+          title: '请输入1-' + sizenum + '之间的题号',
+          icon: 'none',
+          duration: 2000
+        });
+        
+        // 保持对话框打开
+        this.setData({
+          hiddenmodalput: false
+        });
+      }
+    } else {
+      console.log("未输入题号");
+      
+      // 未输入时，不关闭对话框
       wx.showToast({
-        title: '请输入不大于'+sizenum+'的题号',    
-        icon:'none',
-        duration:1500
+        title: '请输入题号',
+        icon: 'none',
+        duration: 1500
+      });
+      
+      // 保持对话框打开
+      this.setData({
+        hiddenmodalput: false
       });
     }
   },
 
   onShareAppMessage: function () {
-    return{
+    return {
       title: this.data.user+'仅用时'+this.data.first_minute+'分'+this.data.first_second+'秒，答出第'+this.data.show_qnumber+'题, 来试试?',
-      path: '/pages/showone/showone',    
+      path: '/pages/showone/showone?display_num=' + this.data.show_qnumber + '&source=result',
       imageUrl: 'sharepic.jpg'
     };
   },

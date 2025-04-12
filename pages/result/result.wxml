@@ -42,6 +42,7 @@
 <modal hidden="{{hiddenmodalput}}" title="题号跳转" 
    			confirm-text="提交" cancel-text="取消" bindcancel="modalinput" 
    			bindconfirm="confirm">
-     <!-- 这里可以自由选择你的输入框类型<input type='text' placeholder="请输入内容" auto-focus/> -->
-     <textarea placeholder="请输入题号" bindinput="getjumpnumber"></textarea>
-   </modal>
+  <!-- 使用数字键盘和类型为数字的输入框 -->
+  <input type="number" placeholder="请输入题号(1-{{sizenum}})" bindinput="getjumpnumber" 
+         focus="{{!hiddenmodalput}}" maxlength="3" />
+</modal>

@@ -39,7 +39,13 @@
 <view class="account">
   <view class="title1">{{answerlength}}个字：</view>
   <view class="num">
-    <input answer="useranswer" bindinput="bindkeyinput" cursor="60" value="{{addtext}}" placeholder-style="color:#999999;"/>
+    <input 
+      answer="useranswer" 
+      bindinput="bindkeyinput" 
+      bindconfirm="redirectBtn" 
+      cursor="60" 
+      value="{{addtext}}" 
+      placeholder-style="color:#999999;"/>
   </view>
 </view> 
 

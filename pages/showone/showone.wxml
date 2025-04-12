@@ -42,7 +42,15 @@
   <!--
   <view class="num"><input answer="useranswer" bindinput="bindkeyinput" bindblur="loosefocus" focus="{{inputShowed}}"  cursor="1" value="{{addtext}}" placeholder-style="color:#999999;"/></view>
  -->
- <view class="num"><input answer="useranswer" bindinput="bindkeyinput"    cursor="20" value="{{addtext}}" placeholder-style="color:#999999;"/></view>
+ <view class="num">
+  <input 
+    answer="useranswer" 
+    bindinput="bindkeyinput" 
+    bindconfirm="redirectBtn" 
+    cursor="20" 
+    value="{{addtext}}" 
+    placeholder-style="color:#999999;"/>
+</view>
 </view> 
 
 
@@ -85,6 +93,11 @@
 </view>
 
 -->
+
+<view class="container">
+  <!-- 原有页面内容 -->
+  <!-- ... -->
+</view>
 
 
 

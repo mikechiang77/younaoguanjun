@@ -16,10 +16,43 @@
   <button type="primary"  bindtap="huxi">文字呼吸</button>
   -->
 
-  <button class="primary" type="primary"  bindtap="shownewone">开始</button>
+  <button class="primary" type="primary" bindtap="shownewone">开始</button>
 
-  <button class="primary" type="primary"  bindtap="gotomanage">管理</button>
-  <button class="primary" type="primary"  bindtap="gotomanage1">管理1</button>
+  <button class="primary" type="primary" bindtap="gotomanage">管理</button>
+  <button class="primary" type="primary" bindtap="gotomanage1">管理1</button>
+  </view>
+  
+  <!-- 获取用户信息弹窗 - 只在需要时显示 -->
+  <view class="user-info-modal" wx:if="{{isShowUserInfo}}">
+    <view class="user-info-content">
+      <view class="user-info-title">请提供您的个人信息</view>
+      <view class="user-info-desc">获取您的头像和昵称以便为您提供更好的服务</view>
+      
+      <form catchsubmit="formSubmit">
+        <view class="info-item">
+          <view class="item-title">头像</view>
+          <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="gettourl">
+            <image class="avatar-img" src="{{wxavatarUrl || defaultAvatarUrl}}"></image>
+            <view class="avatar-text">点击获取头像</view>
+          </button>
+        </view>
+        
+        <view class="info-item">
+          <view class="item-title">昵称</view>
+          <view class="nickname-container">
+            <input class="nickname-input" placeholder="点击获取微信昵称" type="nickname" name="nickname" value="{{wxnickName}}"></input>
+            <!-- 在输入框旁边立即显示获取到的昵称 -->
+            <text class="nickname-preview" wx:if="{{tempNickName}}">已获取: {{tempNickName}}</text>
+          </view>
+          <view class="nickname-tip">点击输入框可自动获取微信昵称</view>
+        </view>
+        
+        <view class="btn-group">
+          <button class="cancel-btn" bindtap="closeUserInfo">取消</button>
+          <button class="confirm-btn" form-type="submit">确认</button>
+        </view>
+      </form>
+    </view>
   </view>
 </view>
 

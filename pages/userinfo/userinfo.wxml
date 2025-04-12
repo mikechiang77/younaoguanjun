@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="header">
+    <text class="title">请提供您的头像和昵称</text>
+    <text class="subtitle">您需要提供这些信息才能继续使用小程序</text>
+  </view>
+  
+  <form catchsubmit="formSubmit">
+    <view class="user-info-form">
+      <view class="avatar-section">
+        <text class="section-title">选择头像</text>
+        <button class="avatar-button" open-type="chooseAvatar" bindchooseavatar="gettourl">
+          <image class="avatar-image" src="{{wxavatarUrl || '/images/default-avatar.png'}}"></image>
+          <text class="avatar-text">点击选择头像</text>
+        </button>
+      </view>
+      
+      <view class="nickname-section">
+        <text class="section-title">填写昵称</text>
+        <input class="nickname-input" placeholder="请输入您的昵称" type="nickname" name="nickname" bindinput="onNicknameInput"></input>
+      </view>
+      
+      <button class="submit-button" form-type="submit">确认提交</button>
+    </view>
+  </form>
+</view>
